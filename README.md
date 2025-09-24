@@ -21,8 +21,10 @@ To reproduce results from the paper, follow the steps below:
    - Run the `3) hmtDNA*.ipynb` notebooks to generate results.
    - For instructions on scraping new mitochondrial sequences, see [Scraping new mitochondrial sequences](#scraping-new-mitochondrial-sequences) below.
 
+## Requirements
+The code has been tested with Python 3.11.11 using the packages from `requirements.txt`. Use the locally provided geoopt 0.5.0 (including a sphere origin function) with `$ unzip data/geoopt.zip && pip install -e data/geoopt`. After acceptance, this will automatically be included as a git submodule. 
 
-### Scraping new mitochondrial sequences
+## Scraping new mitochondrial sequences
 In order to make an updated scrape of mitochondrial sequences, run the following Python script:
 ```python
 from Bio import Entrez
@@ -47,9 +49,6 @@ $ haplogrep3 classify --in "seqs.fasta" --out seqs_rsrs.txt --tree phylotree-rsr
 $ haplogrep3 classify --in "seqs.fasta" --out seqs_rcrs.txt --tree phylotree-fu-rcrs@1.2 --extend-report
 ```
 This generates a file with mutations compared to a reference sequence, as well as more metadata — see the [*haplogrep3* documentation][haplogrep] for details. Additional metadata (e.g., geographic location) can be added during a second GenBank scrape; merging such data with the *haplogrep3* output produces the zipped files `data/hmtDNA/63k_out_rcrs.txt.gz` and `data/hmtDNA/63k_out_rsrs.txt.gz`. Upon approval, this pipeline will be made available as a standalone script, and a resulting snapshot will be published via Zenodo.
-
-## Requirements
-The code has been tested with Python 3.11.11 using the packages from `requirements.txt`. Use the locally provided geoopt 0.5.0 (including a sphere origin function) with `$ unzip data/geoopt.zip && pip install -e data/geoopt`.
 
 ## Bibliography
 1. A. Riba. "Cell cycle gene regulation dynamics revealed by rna velocity and deep learning", 2021. URL
